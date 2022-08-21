@@ -7,6 +7,8 @@ import User from './models/User'
 
 const app = express()
 
+const port = config.PORT || 8080;
+
 app.use(express.json())
 
 app.use(cors({ credentials: true, origin: 'http://localhost:8080' }))
@@ -18,6 +20,6 @@ app.use('/images', express.static('images'));
 
 app.use(router)
 
-app.listen(8080, () => {
-    console.log(`Server listening port ${config.PORT}`)
+app.listen(port, () => {
+    console.log(`Server listening port ${port}`)
 })
