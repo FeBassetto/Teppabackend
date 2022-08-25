@@ -9,16 +9,7 @@ const port = config.PORT || 8080;
 
 app.use(express.json())
 
-app.use(
-    cors({
-        origin: "*",
-    })
-);
-
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    next();
-});
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 app.use(express.urlencoded({ extended: true }))
 
