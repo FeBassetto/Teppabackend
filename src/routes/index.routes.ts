@@ -4,10 +4,10 @@ import userRouter from "./userRoutes.routes";
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 router.use('/user', userRouter)
 router.use('/task', tasksRouter)
+router.get('/', (req, res) => {
+    res.json({message: 'Hello World!'})
+})
 
 export default router
