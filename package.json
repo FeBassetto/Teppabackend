@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node dist/server.js",
     "backend": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-    "build": "tsc --build"
+    "build": "tsc --build",
+    "test": ""
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
