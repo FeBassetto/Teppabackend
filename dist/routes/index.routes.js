@@ -9,4 +9,7 @@ const userRoutes_routes_1 = __importDefault(require("./userRoutes.routes"));
 const router = (0, express_1.Router)();
 router.use('/user', userRoutes_routes_1.default);
 router.use('/task', taskRoutes_routes_1.default);
+router.get('/', (req, res) => {
+    res.json({ message: 'Hello World!' });
+});
 exports.default = router;
