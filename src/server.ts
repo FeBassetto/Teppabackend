@@ -16,6 +16,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('src/public'))
 app.use('/images', express.static('images'));
 
+app.get('/', (req, res) => {
+    res.send('Hello world!')
+})
+
 app.use(router)
 
 app.listen(port, () => {
