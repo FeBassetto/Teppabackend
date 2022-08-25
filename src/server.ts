@@ -9,7 +9,13 @@ const port = config.PORT || 8080;
 
 app.use(express.json())
 
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200,
+    methods: "GET, PUT, POST, PATCH"
+}
+
+app.use(cors(corsOptions));
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');

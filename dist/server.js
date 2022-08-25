@@ -10,7 +10,12 @@ const index_routes_1 = __importDefault(require("./routes/index.routes"));
 const app = (0, express_1.default)();
 const port = config_1.default.PORT || 8080;
 app.use(express_1.default.json());
-app.use((0, cors_1.default)());
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200,
+    methods: "GET, PUT, POST, PATCH"
+};
+app.use((0, cors_1.default)(corsOptions));
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", 'true');
