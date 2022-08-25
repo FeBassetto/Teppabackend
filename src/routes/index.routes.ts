@@ -6,7 +6,7 @@ const router = Router()
 
 router.use('/user', userRouter)
 router.use('/task', tasksRouter)
-router.get('/', (req, res) => {
+router.get('/home', (req, res) => {
     res.json({message: 'Hello World!'})
 })
 
