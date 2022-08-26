@@ -151,7 +151,9 @@ class UserController {
             const pathImage = `src/public/images/users/${user.image}`;
             if (noImage) {
                 updatedData = Object.assign(Object.assign({}, updatedData), { image: 'nullimage.jpg' });
-                fs_1.default.unlink(pathImage, (err) => console.log(err));
+                if (user.image !== 'nullimage.jpg') {
+                    fs_1.default.unlink(pathImage, (err) => console.log(err));
+                }
             }
             if (Object.keys(updatedData).length < 1) {
                 return res.status(422).json({ message: 'Nenhum dado recebido' });
