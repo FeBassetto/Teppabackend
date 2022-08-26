@@ -178,7 +178,9 @@ class UserController {
 
         if (noImage) {
             updatedData = { ...updatedData, image: 'nullimage.jpg' }
-            fs.unlink(pathImage, (err) => console.log(err))
+            if (user.image !== 'nullimage.jpg') {
+                fs.unlink(pathImage, (err) => console.log(err))
+            }
         }
 
         if (Object.keys(updatedData).length < 1) {
