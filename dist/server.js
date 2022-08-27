@@ -13,7 +13,7 @@ app.use(express_1.default.json());
 const corsOptions = {
     origin: 'http://localhost:3000',
     optionsSuccessStatus: 200,
-    methods: "GET, PUT, POST, PATCH"
+    methods: "GET, PUT, POST, PATCH, DELETE"
 };
 app.use((0, cors_1.default)(corsOptions));
 app.use(function (req, res, next) {
