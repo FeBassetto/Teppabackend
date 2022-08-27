@@ -136,7 +136,7 @@ class TaskController {
     static async updateTask(req: Request, res: Response) {
 
         const { id } = req.params
-        const { title, description, limitDate } = req.body
+        const { title, description, limitDate, concluded } = req.body
 
         let taskAlreadyExists: Array<any> = []
 
@@ -158,7 +158,7 @@ class TaskController {
             return res.status(422).json({ message: 'Token Inválido!' })
         }
 
-        if (!title && !description && !limitDate) {
+        if (!title && !description && !limitDate && !concluded) {
             return res.status(422).json({ message: "Nenhum dado recebido!" })
         }
 
@@ -174,6 +174,10 @@ class TaskController {
 
         if (limitDate) {
             updatedTaks = { ...updatedTaks, limitDate: limitDate }
+        }
+
+        if (concluded) {
+            updatedTaks = { ...updatedTaks, concluded: concluded }
         }
 
         if (Object.keys(updatedTaks).length < 1) {

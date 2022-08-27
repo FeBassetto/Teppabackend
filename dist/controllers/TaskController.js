@@ -114,7 +114,7 @@ class TaskController {
     static updateTask(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const { title, description, limitDate } = req.body;
+            const { title, description, limitDate, concluded } = req.body;
             let taskAlreadyExists = [];
             const q = (0, firestore_6.query)((0, firestore_5.collection)(db_1.default, "tasks"), (0, firestore_4.where)("id", "==", id));
             const querySnapshot = yield (0, firestore_3.getDocs)(q);
@@ -130,7 +130,7 @@ class TaskController {
             if (task.user.id !== user.id) {
                 return res.status(422).json({ message: 'Token Inválido!' });
             }
-            if (!title && !description && !limitDate) {
+            if (!title && !description && !limitDate && !concluded) {
                 return res.status(422).json({ message: "Nenhum dado recebido!" });
             }
             let updatedTaks = {};
@@ -142,6 +142,9 @@ class TaskController {
             }
             if (limitDate) {
                 updatedTaks = Object.assign(Object.assign({}, updatedTaks), { limitDate: limitDate });
+            }
+            if (concluded) {
+                updatedTaks = Object.assign(Object.assign({}, updatedTaks), { concluded: concluded });
             }
             if (Object.keys(updatedTaks).length < 1) {
                 return res.status(422).json({ message: 'Nenhum dado recebido!' });
