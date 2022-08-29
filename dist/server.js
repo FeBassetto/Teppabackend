@@ -11,7 +11,7 @@ const app = (0, express_1.default)();
 const port = config_1.default.PORT || 8080;
 app.use(express_1.default.json());
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: 'https://teppafrontend-c0569.web.app',
     optionsSuccessStatus: 200,
     methods: "GET, PUT, POST, PATCH, DELETE"
 };
