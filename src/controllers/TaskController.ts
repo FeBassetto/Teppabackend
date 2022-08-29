@@ -158,7 +158,7 @@ class TaskController {
             return res.status(422).json({ message: 'Token Inválido!' })
         }
 
-        if (!title && !description && !limitDate && !concluded) {
+        if (!title && !description && !limitDate && (concluded !== true || concluded !== false)) {
             return res.status(422).json({ message: "Nenhum dado recebido!" })
         }
 
