@@ -143,7 +143,7 @@ class TaskController {
             if (limitDate) {
                 updatedTaks = Object.assign(Object.assign({}, updatedTaks), { limitDate: limitDate });
             }
-            if (concluded) {
+            if (concluded === true || concluded === false) {
                 updatedTaks = Object.assign(Object.assign({}, updatedTaks), { concluded: concluded });
             }
             if (Object.keys(updatedTaks).length < 1) {

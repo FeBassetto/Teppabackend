@@ -176,7 +176,7 @@ class TaskController {
             updatedTaks = { ...updatedTaks, limitDate: limitDate }
         }
 
-        if (concluded) {
+        if (concluded === true || concluded === false) {
             updatedTaks = { ...updatedTaks, concluded: concluded }
         }
 
